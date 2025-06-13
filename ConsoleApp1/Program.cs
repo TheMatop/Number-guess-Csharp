@@ -1,7 +1,29 @@
 ﻿using System;
 
 Random rnd = new Random();
-int answer = rnd.Next(1, 11);
+
+int level = 0;
+
+Console.Write("Enter the level you want: \'1\' (1-10) or \'2\' (1-50) or \'3\' (1-100): ");
+
+String choise = Console.ReadLine();
+
+if (StringtoInt(choise) == 1)
+{
+    level = 11;
+}
+
+if (StringtoInt(choise) == 2)
+{
+    level = 51;
+}
+
+if (StringtoInt(choise) == 3)
+{
+    level = 101;
+}
+
+int answer = rnd.Next(1, level);
 
 while (true)
 {
@@ -42,4 +64,9 @@ while (true)
         Console.WriteLine("Error: " + ex);
         continue;
     }
+}
+
+static int StringtoInt(string value)
+{
+    return int.Parse(value);
 }
